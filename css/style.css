@@ -220,12 +220,13 @@ header .toggle-menu span:nth-child(2) {
   opacity: 0;
 }
 section.home-slider {
-  padding: 93px 0 0;
+  /* padding: 93px 0 0; */
   background: #fafafa;
 }
 
 header {
-  background: #fafafa;
+  /* background: #fafafa; */
+  background: rgb(250 250 250 / 70%);
   padding: 10px 0;
   left: 0px;
   right: 0px;
@@ -566,13 +567,13 @@ header nav ul li a i.fas.fa-language {
 
 .home-slider .slider-body .owl-item {
   /* height: calc(100vh - 125px); */
-  height: 80vh;
+  height: 100vh;
 }
 
 .home-slider .text-searchbar {
   position: absolute;
   right: 0;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   z-index: 1;
   width: 100%;
@@ -589,7 +590,7 @@ header nav ul li a i.fas.fa-language {
 }
 
 .home-slider .text-searchbar .txt h2 {
-  font-size: 28px;
+  font-size: 32px;
   color: #0772ca;
   font-weight: 600;
   margin: 0 0 10px;
@@ -604,6 +605,7 @@ header nav ul li a i.fas.fa-language {
   margin: 0;
   font-size: 14px;
   color: #000;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -1105,7 +1107,9 @@ header nav ul li a i.fas.fa-language {
 
 .dance-gallery-slider .item {
 }
-
+.dance-gallery-slider a {
+  display: block;
+}
 .single-dance-gallery {
   border-radius: 30px;
   overflow: hidden;
@@ -1133,39 +1137,36 @@ header nav ul li a i.fas.fa-language {
 }
 
 .single-dance-gallery .txt {
-  background: rgba(49, 134, 201, 0.85);
+  background: rgb(0 0 0 / 60%);
   padding: 40px 15px 15px;
   position: absolute;
   left: 0;
+  top: 0;
   bottom: 0;
   z-index: 1;
   width: 100%;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
+  height: 100%;
+  text-align: left;
   transition: all 0.3s;
 }
-
-.single-dance-gallery:hover .txt {
-  opacity: 1;
-  visibility: visible;
+.single-dance-gallery .txt .inner-txt {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 1;
 }
-
 .single-dance-gallery .txt h2 {
-  margin: 0 0 5px;
-  font-size: 18px;
+  margin: 0 0 50px;
+  font-size: 26px;
   color: #fff;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  font-weight: 800;
 }
 
 .single-dance-gallery .txt p {
   margin: 0 0 5px;
-  font-size: 13px;
+  font-size: 15px;
   color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1173,49 +1174,16 @@ header nav ul li a i.fas.fa-language {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
-.single-dance-gallery .txt .star-ratting {
-}
-
-.single-dance-gallery .txt .star-ratting ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.single-dance-gallery .txt .star-ratting ul li {
-  display: inline-block;
-  padding: 0 2px;
-  font-size: 16px;
-  color: #d1b921;
-}
-
-.single-dance-gallery .txt .star-ratting ul li span {
-  color: #fff;
-}
-
-.single-dance-gallery .txt .btns {
-  margin: 15px 0 0;
-}
-
-.single-dance-gallery .txt .btns a {
-  background: #ffffff;
-  color: #000;
-  border-radius: 7px;
-  padding: 7px 30px;
-  font-size: 14px;
-  font-weight: 600;
-  border: 1px solid transparent;
-  transition: all 0.3s ease 0s;
-  display: inline-block;
-}
-
-.single-dance-gallery .txt .btns a:hover {
+.single-dance-gallery .txt button {
   background: transparent;
-  color: #ffffff;
-  border-color: #ffffff;
+  padding: 0;
+  border: 0;
+  font-size: 15px;
+  color: #0772ca;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
 }
-
 /***********search-section*********/
 
 .search-section {
@@ -1578,7 +1546,7 @@ header nav ul li a i.fas.fa-language {
   margin: 0;
   cursor: pointer;
   font-weight: 500;
-  color: #959595;
+  color: #7b7b7b;
   font-size: 14px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1947,10 +1915,15 @@ header nav ul li a i.fas.fa-language {
 }
 
 .signup .btns {
-  text-align: right;
   margin: 30px 0 0;
 }
-
+.signup .btns .btn2 {
+  float: left;
+  border: 1px solid #0772ca;
+}
+.signup .btns .btn1 {
+  float: right;
+}
 .signup .btns a {
   width: auto !important;
   display: inline-block;
@@ -3234,4 +3207,9 @@ section.coach-profile {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+.border {
+  border: 0 !important;
+  border-bottom: 1px solid #b3b3b3 !important;
+  margin: 25px 0;
 }

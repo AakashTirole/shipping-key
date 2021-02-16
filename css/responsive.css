@@ -171,7 +171,15 @@
   .category-slider .single-category h2 {
     font-size: 13px;
   }
-
+  .home-slider .text-searchbar {
+    position: absolute;
+    right: 0;
+    top: initial;
+    bottom: 130px;
+    transform: unset;
+    z-index: 1;
+    width: 100%;
+  }
   /*******dance-category*******/
   .search-section .text-searchbar .txt h2 {
     font-size: 20px;
