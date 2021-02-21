@@ -64,10 +64,10 @@
   font-display: swap;
 }
 
-.container {
+/* .container {
   width: 100%;
   max-width: 1140px;
-}
+} */
 
 .clearfix::after {
   visibility: hidden;
@@ -445,6 +445,9 @@ footer .single-footer.social-links ul {
   margin: 0px -5px;
   padding: 0px;
 }
+footer .single-footer.social-links {
+  margin-top: 15px;
+}
 
 /**************submenu-wrapper***********/
 
@@ -565,7 +568,7 @@ header nav ul li a i.fas.fa-language {
   font-size: 18px;
 }
 
-.home-slider .slider-body .owl-item {
+.home-slider .slider-body .item {
   /* height: calc(100vh - 125px); */
   height: 100vh;
 }
@@ -575,12 +578,22 @@ header nav ul li a i.fas.fa-language {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 2;
   width: 100%;
 }
-
+.home-slider .overylay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 35%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
 .home-slider .text-searchbar .body {
-  max-width: 550px;
+  max-width: 600px;
   width: 100%;
   margin-left: auto;
 }
@@ -604,7 +617,7 @@ header nav ul li a i.fas.fa-language {
 .home-slider .text-searchbar .txt p {
   margin: 0;
   font-size: 14px;
-  color: #000;
+  color: #fff;
   font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -838,7 +851,18 @@ header nav ul li a i.fas.fa-language {
   object-fit: cover;
   -o-object-fit: cover;
 }
-
+.single-dance-data .img .featured-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: #0772ca;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 0 4px 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+}
 .single-dance-data .txt {
   padding: 5px;
 }
@@ -989,15 +1013,6 @@ header nav ul li a i.fas.fa-language {
 }
 
 /**********join-us-strip**********/
-
-.join-us-strip {
-  background: #0772ca;
-  text-align: center;
-}
-
-.same-txt {
-}
-
 .same-txt h2 {
   font-size: 24px;
   color: #fff;
@@ -1020,13 +1035,52 @@ header nav ul li a i.fas.fa-language {
 
 .same-txt a {
   background: #fff;
+  border: 1px solid transparent;
   display: inline-block;
   padding: 7px 30px;
   border-radius: 4px;
   font-size: 16px;
   color: black;
-  font-weight: 500;
-  margin: 20px 0 0;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.join-us-strip .same-txt a:hover {
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+}
+.join-us-strip {
+  background: #0772ca;
+  text-align: center;
+}
+.join-us-strip h2 {
+  margin: 0 0 20px;
+  font-size: 28px;
+}
+.join-us-strip ul {
+  margin: 0 -15px;
+  padding: 0;
+  list-style: none;
+}
+.join-us-strip ul li {
+  color: rgb(255, 255, 255);
+  padding: 8px 10px;
+  font-size: 15px;
+  display: inline-block;
+  font-weight: 600;
+  position: relative;
+}
+.join-us-strip ul li:after {
+  content: "|";
+  margin-left: 20px;
+  color: #adadad;
+}
+.join-us-strip ul li:last-child::after {
+  content: "";
+  margin: 0;
+}
+.join-us-strip .same-txt a {
+  margin: 40px 0 0;
 }
 
 /*******lessons-cost*********/
@@ -1158,10 +1212,14 @@ header nav ul li a i.fas.fa-language {
   z-index: 1;
 }
 .single-dance-gallery .txt h2 {
-  margin: 0 0 50px;
-  font-size: 26px;
+  margin: 0 0 20px;
+  font-size: 20px;
   color: #fff;
   font-weight: 800;
+  background: #0772ca;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .single-dance-gallery .txt p {
@@ -2057,7 +2115,7 @@ section.coach-profile {
   border: 1px solid #0772ca;
   transition: all 0.3s ease 0s;
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 5px 10px;
 }
 
 .c-profile-data .img-data .data .buttons button:hover {
@@ -2404,41 +2462,35 @@ section.coach-profile {
   color: #0772ca;
   cursor: pointer;
 }
-.gigs-details .social-like .like-btn {
-  text-align: right;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
+.gigs-details .like-btn {
 }
-.gigs-details .social-like .like-btn button {
+.gigs-details .like-btn button {
   border: 0;
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 10px;
 }
-.gigs-details .social-like .like-btn label {
+.gigs-details .like-btn label {
   margin: 0;
   position: relative;
   cursor: pointer;
 }
-.gigs-details .social-like .like-btn input {
+.gigs-details .like-btn input {
   position: absolute;
   left: 0;
   top: 0;
   visibility: hidden;
   opacity: 0;
 }
-.gigs-details .social-like .like-btn input:checked ~ span {
+.gigs-details .like-btn input:checked ~ span {
   color: #ff0000;
 }
-.gigs-details .social-like .like-btn span {
-  font-size: 24px;
+.gigs-details .like-btn span {
+  font-size: 30px;
   color: #a9a9a9;
 }
 .gigs-details .c-profile .buttons button {
   width: 100%;
   padding: 10px;
-}
-.gigs-details .orderbtn-details {
 }
 .gigs-details .orderbtn-details .details {
   margin: 40px 0 20px;
@@ -2471,6 +2523,11 @@ section.coach-profile {
   .custom-star-ratting
   li {
   color: #cecece;
+}
+.gigs-details .buttons {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 0;
 }
 
 /*********my account*********************************/
@@ -3212,4 +3269,236 @@ section.coach-profile {
   border: 0 !important;
   border-bottom: 1px solid #b3b3b3 !important;
   margin: 25px 0;
+}
+
+/*********coach-profile**********/
+.coach-profile .profile-contactbox {
+  padding: 16px 24px;
+  margin: 0px;
+  border: 1px solid #e4e4e4;
+  background-color: #ffffff;
+  box-shadow: 0 1px 5px 0 rgb(50 50 50 / 10%);
+  border-radius: 4px;
+  position: sticky;
+  top: 110px;
+  transition: all 0.3s;
+  right: 0;
+  z-index: 1;
+}
+.coach-profile .profile-contactbox h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: #484848;
+}
+.coach-profile .profile-contactbox .form-group {
+  margin-bottom: 15px;
+}
+.coach-profile .profile-contactbox .form-group h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+  color: #484848;
+  font-weight: 600;
+}
+.coach-profile .profile-contactbox .form-group p {
+  margin: 0;
+  font-size: 14px;
+  color: #343434;
+  font-weight: 300 !important;
+}
+.coach-profile .profile-contactbox .btns {
+  margin: 20px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid #dedede;
+}
+.coach-profile .profile-contactbox .btns button {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+/**************************user-account***************/
+.user-account {
+  background: #fbfbfb !important;
+}
+.user-account .img-data {
+  margin: 0;
+  text-align: center;
+}
+.user-account .img-data .img {
+  width: 130px !important;
+  height: 130px !important;
+  overflow: hidden;
+  border-radius: 50%;
+  float: initial;
+  position: relative;
+  background: #fbfbfb;
+  border: 2px solid #0772ca;
+}
+.user-account .img-data .data {
+  margin: 15px 0 0 !important;
+  padding: 0;
+}
+.user-account .account-card {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 15px 1px rgb(0 0 0 / 2%);
+  margin: 0 0 30px;
+}
+
+.user-account h1.head {
+  margin: 0 0 20px;
+  padding: 0 0 15px;
+  font-size: 18px;
+  color: #676767;
+  font-weight: 600;
+  border-bottom: 1px solid #e6e6e6;
+}
+.user-account .img-data .img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.user-account .img-data .img-wrapper label {
+  background: #0772ca;
+  color: #fff;
+  border: 2px solid #fff;
+  position: absolute;
+  right: 2px;
+  bottom: 10px;
+  margin: 0;
+  font-size: 13px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 3px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.user-account .img-data .img-wrapper label input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.user-account .input-fields {
+  text-align: left;
+}
+.user-account .input-fields .form-group button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 15px;
+  color: #0772ca;
+  font-weight: 600;
+}
+
+.user-account .account-card .c-profile-data .btns {
+  text-align: left;
+  margin: 20px 0 0;
+}
+.user-account .notifications .header {
+  margin: 0 0 15px;
+}
+.user-account .notifications .m-wrapper {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0 0 15px;
+  margin: 0 0 15px;
+}
+.user-account .notifications .header h2 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  color: #676767;
+  font-weight: 600;
+}
+.user-account .notifications .header p {
+  margin: 0;
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+}
+.user-account .notifications ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.user-account .notifications ul li {
+  padding: 8px 0;
+  position: relative;
+}
+.user-account .notifications ul li p {
+  margin: 0;
+  font-size: 14px;
+  color: #717171;
+  font-weight: 500;
+  width: 90%;
+}
+.user-account .notifications ul li .custom-toggle {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  z-index: 1;
+}
+
+/***********custom toggle***********/
+.custom-toggle .switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 21px;
+  margin: 0;
+}
+
+.custom-toggle .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.custom-toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.custom-toggle input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.custom-toggle input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.custom-toggle input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+}
+
+/* Rounded sliders */
+.custom-toggle .slider.round {
+  border-radius: 34px;
+}
+
+.custom-toggle .slider.round:before {
+  border-radius: 50%;
 }

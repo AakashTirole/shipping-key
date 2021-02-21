@@ -36,15 +36,39 @@ $(document).ready(function () {
 });
 
 /***home-slider***/
+// $('.home-slider .owl-carousel').owlCarousel({
+//     items: 1,
+//     lazyLoad: true,
+//     loop: true,
+//     margin: 10
+// });
+
 $('.home-slider .owl-carousel').owlCarousel({
-    items: 1,
-    lazyLoad: true,
     loop: true,
-    margin: 10
+    items: 1,
+    autoplay:true,
+    animateOut: 'fadeOut',
+    autoplayTimeout:3000,
+    autoplayHoverPause:false,
+        responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 1
+        },
+        1000: {
+            items: 1
+        }
+    }
 });
 /***category-slider***/
 $('.category-slider .owl-carousel').owlCarousel({
     loop: true,
+    autoplay:true,
+    animateOut: 'fadeOut',
+    autoplayTimeout:3000,
+    autoplayHoverPause:false,
     responsive: {
         0: {
             items: 3
@@ -93,6 +117,10 @@ $('.latest-data-slider2 .owl-carousel').owlCarousel({
 $('.dance-gallery .owl-carousel').owlCarousel({
     loop: true,
     center: true,
+    autoplay:true,
+    animateOut: 'fadeOut',
+    autoplayTimeout:2500,
+    autoplayHoverPause:true,
     responsive: {
         0: {
             items: 1

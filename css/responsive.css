@@ -29,8 +29,30 @@
     padding: 10px;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  footer .m-top {
+    margin-top: 20px;
+  }
+  footer .support-social {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 -50px;
+  }
+  footer .support-social .single-footer {
+    padding: 0 50px;
+  }
+  footer .single-footer.social-links {
+    margin-top: 0;
+  }
+  .user-account .account-card {
+    padding: 20px;
+  }
+}
 
 @media screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none;
+  }
   .section-padding {
     padding: 30px 0;
   }
@@ -387,6 +409,30 @@
   .gigs-details .c-profile-data .img-data .img {
     height: 150px;
     max-width: 150px;
+  }
+
+  /*************/
+  .join-us-strip ul li {
+    padding: 5px 5px;
+    font-size: 14px;
+  }
+  .join-us-strip ul li:after {
+    content: "|";
+    margin-left: 10px;
+    color: #adadad;
+  }
+  .same-txt a {
+    padding: 7px 20px;
+    font-size: 15px;
+  }
+
+  .user-account .account-card {
+    padding: 15px;
+  }
+  .user-account h1.head {
+    margin: 0 0 15px;
+    padding: 0 0 10px;
+    font-size: 16px;
   }
 }
 
