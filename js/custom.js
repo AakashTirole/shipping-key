@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         if ($(window).scrollTop() >= 45) {
             $('header').addClass('fixed-header');
         }
@@ -21,36 +21,22 @@ $(document).ready(function () {
         }, 'slow');
     });
 
-    $("header a").click(function () {
-        $('html,body').animate({
-            scrollTop: $('.' + $(this).attr('data-target') + '').offset().top - 120
-        }, 'slow');
+    /***custom dropdown***/
+    $('.custom-dropdown .dropdown-btn, .custom-dropdown .overlay').click(function () {
+        $(this).parents('.custom-dropdown').toggleClass('show-c-dropdown');
     });
+    /***end***/
 });
 
-$(document).ready(function () {
-    /********/
-    $('.opemsubmenu, .submenu').hover(function () {
-        $(this).parents('.submenu-wrapper').toggleClass('submenuToggle');
-    });
-});
-
-/***home-slider***/
-// $('.home-slider .owl-carousel').owlCarousel({
-//     items: 1,
-//     lazyLoad: true,
-//     loop: true,
-//     margin: 10
-// });
-
+/**********owl-carousel******/
 $('.home-slider .owl-carousel').owlCarousel({
     loop: true,
     items: 1,
-    autoplay:true,
+    autoplay: true,
     animateOut: 'fadeOut',
-    autoplayTimeout:3000,
-    autoplayHoverPause:false,
-        responsive: {
+    autoplayTimeout: 3000,
+    autoplayHoverPause: false,
+    responsive: {
         0: {
             items: 1
         },
@@ -62,65 +48,16 @@ $('.home-slider .owl-carousel').owlCarousel({
         }
     }
 });
-/***category-slider***/
-$('.category-slider .owl-carousel').owlCarousel({
+/***end***/
+
+/**********owl-carousel******/
+$('.testimonial-slider .owl-carousel').owlCarousel({
     loop: true,
-    autoplay:true,
+    autoplay: true,
     animateOut: 'fadeOut',
-    autoplayTimeout:3000,
-    autoplayHoverPause:false,
-    responsive: {
-        0: {
-            items: 3
-        },
-        600: {
-            items: 4
-        },
-        1000: {
-            items: 6
-        }
-    }
-});
-/******latest-data-slider*****/
-$('.latest-data-slider .owl-carousel').owlCarousel({
-    loop: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 2
-        },
-        1000: {
-            items: 3
-        }
-    }
-});
-
-/******latest-data-slider*****/
-$('.latest-data-slider2 .owl-carousel').owlCarousel({
-    loop: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 2
-        },
-        1000: {
-            items: 4
-        }
-    }
-});
-
-/****dance-gallery***/
-$('.dance-gallery .owl-carousel').owlCarousel({
-    loop: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: false,
     center: true,
-    autoplay:true,
-    animateOut: 'fadeOut',
-    autoplayTimeout:2500,
-    autoplayHoverPause:true,
     responsive: {
         0: {
             items: 1
@@ -129,15 +66,64 @@ $('.dance-gallery .owl-carousel').owlCarousel({
             items: 2
         },
         1000: {
-            items: 4
+            items: 3
         }
     }
 });
+/***end***/
 
-/***gigs-slider***/
-$('.gigs-slider .owl-carousel').owlCarousel({
-    items: 1,
-    lazyLoad: true,
-    loop: true,
-    margin: 10
+
+/*****************product details slider*************/
+$(document).ready(function () {
+    // reference for main items
+    var slider = $('#slider');
+    // reference for thumbnail items
+    var thumbnailSlider = $('#thumbnailSlider');
+    //transition time in ms
+    var duration = 500;
+
+    // carousel function for main slider
+    slider.owlCarousel({
+        loop: false,
+        nav: false,
+        items: 1
+    }).on('changed.owl.carousel', function (e) {
+        //On change of main item to trigger thumbnail item
+        thumbnailSlider.trigger('to.owl.carousel', [e.item.index, duration, true]);
+    });
+
+    // carousel function for thumbnail slider
+    thumbnailSlider.owlCarousel({
+        loop: false,
+        center: true, //to display the thumbnail item in center
+        nav: false,
+        responsive: {
+            0: {
+                items: 3
+            },
+            600: {
+                items: 4
+            },
+            1000: {
+                items: 6
+            }
+        }
+    }).on('click', '.owl-item', function () {
+        // On click of thumbnail items to trigger same main item
+        slider.trigger('to.owl.carousel', [$(this).index(), duration, true]);
+
+    }).on('changed.owl.carousel', function (e) {
+        // On change of thumbnail item to trigger main item
+        slider.trigger('to.owl.carousel', [e.item.index, duration, true]);
+    });
+
+
+    //These two are navigation for main items
+    $('.slider-right').click(function () {
+        slider.trigger('next.owl.carousel');
+    });
+    $('.slider-left').click(function () {
+        slider.trigger('prev.owl.carousel');
+    });
 });
+/*****end*****/
