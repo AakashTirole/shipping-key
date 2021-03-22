@@ -3431,3 +3431,24 @@ ul.offer-list li p i {
   right: 10px;
   top: 10px;
 }
+
+/*************/
+.form-group .type-file {
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  position: relative;
+  background: #e0557d;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.form-group .type-file input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+/*****************/
